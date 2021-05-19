@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coding Interview</title>
+  <style>
+    body {
+      background-color:#f3efef;
+      font-family: Arial, Helvetica, sans-serif;
+      padding:0; margin:0;
+      box-sizing: border-box;
+    }
+    h2 {
+      text-align: center;
+    }
+    .question {
+      background:#fff;
+      border-radius: 10px;
+      margin:10px 10px;
+      padding:10px;
+    }
+    .code {
+      padding:10px;
+      background: #333;
+      color:#fff;
+      border-radius: 10px;
+      line-height: 1.5;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <h2>Coding Interview</h2>
+    <div class="question">
+      <h3>1. Find the missing number in the array</h3>
+      <p>You are given an array of positive numbers from 1 to n, such that all numbers from 1 to n are present except one number x. You have to find x. The input array is not sorted. Look at the below array and give it a try before checking the solution.</p>
+      <div class="code">
+        let find_missing = function(input) { <br>
+          //  calculate sum of all integers<br>
+          //  in input list<br>
+          <br>
+          let actual_sum = 0;<br>
+          for (let i in input) {<br>
+              actual_sum += input[i];<br>
+          }<br>
+          //  There is exactly 1 number missing<br>
+          let n = input.length + 1;<br>
+          let sum_of_n = Math.floor((n * (n + 1)) / 2);<br>
+          return sum_of_n - actual_sum;<br>
+      };<br><br>
+      
+      let random_array = [1,2,4];<br>
+      let actual_missing = find_missing(random_array);<br>
+      console.log("actual missing is " + actual_missing);<br>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>2. Determine if the sum of two integers is equal to the given value</h3>
+      <p>Given an array of integers and a value, determine if there are any two integers in the array whose sum is equal to the given value. Return true if the sum exists and return false if it does not. Consider this array and the target sums:</p>
+      <div class="code">
+        
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+
+<!-- https://www.educative.io/blog/crack-amazon-coding-interview-questions -->
