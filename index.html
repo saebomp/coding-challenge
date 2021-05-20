@@ -35,7 +35,7 @@
   <div>
     <h2>Coding Interview</h2>
     <div class="question">
-      <h3>1. Find the missing number in the array</h3>
+      <h3>1. Find the missing number in the array (Array에서 빠진숫자 구하기)</h3>
       <p>You are given an array of positive numbers from 1 to n, such that all numbers from 1 to n are present except one number x. You have to find x. The input array is not sorted. Look at the below array and give it a try before checking the solution.</p>
       <div class="code">
         let find_missing = function(input) { <br>
@@ -50,19 +50,59 @@
           let n = input.length + 1;<br>
           let sum_of_n = Math.floor((n * (n + 1)) / 2);<br>
           return sum_of_n - actual_sum;<br>
-      };<br><br>
-      
-      let random_array = [1,2,4];<br>
-      let actual_missing = find_missing(random_array);<br>
-      console.log("actual missing is " + actual_missing);<br>
+        };<br><br>
+        
+        let random_array = [1,2,4];<br>
+        let actual_missing = find_missing(random_array);<br>
+        console.log("actual missing is " + actual_missing);<br>
       </div>
     </div>
 
     <div class="question">
-      <h3>2. Determine if the sum of two integers is equal to the given value</h3>
+      <h3>2. Determine if the sum of two integers is equal to the given value (Array안에 두 숫자의 합인 숫자가 들어있는지)</h3>
       <p>Given an array of integers and a value, determine if there are any two integers in the array whose sum is equal to the given value. Return true if the sum exists and return false if it does not. Consider this array and the target sums:</p>
       <div class="code">
+        let findSumOfTwo = function(A, val) {<br>
+          let foundValues = new Set();<br>
+          for (let a in A) {<br>
+            if (foundValues.has(val - A[a])) {<br>
+              return true;<br>
+            }<br><br>
         
+            foundValues.add(A[a]);<br>
+          }<br>
+        
+          return false;<br>
+        };<br><br>
+        
+        let v = [5, 7, 1, 2, 8, 4, 3];<br>
+        let test = [3, 20, 1, 2, 7];<br><br>
+        
+        for (i = 0; i < test.length; i++) {<br>
+          let output = findSumOfTwo(v, test[i]);<br>
+          console.log("findSumOfTwo(v, " + test[i] + ") = " + output);<br>
+        }
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>3. Find the pair of adjacent elements that has tha largest produc(Array 안에 제일 큰숫자 바로 옆에 있는수의 곱을 구하기)</h3>
+      <p>Given an array of integers, find the pair of adjacent elements that has tha largest product and return that product</p>
+      <div class="code">
+        const inputArray = [3,6,-2,-5,7,3]<br>
+        const adjacentElementsProduct = inputArray => {<br>
+            let largestProduct = inputArray[0] * inputArray[1]<br>
+            for(let i = 0; i < inputArray.length; i++) {<br>
+                if(getProduct(inputArray, i) > largestProduct ) {<br>
+                    largestProduct = getProduct(inputArray, i)<br>
+                }<br>
+            }<br>
+            return largestProduct<br>
+        }<br>
+        const getProduct = (inputArray, i) => (<br>
+            inputArray[i] * inputArray[i + 1]<br>
+        )<br>
+        console.log(adjacentElementsProduct(inputArray)) // return '21'
       </div>
     </div>
   </div>
@@ -70,3 +110,4 @@
 </html>
 
 <!-- https://www.educative.io/blog/crack-amazon-coding-interview-questions -->
+<!-- https://jsfiddle.net/ -->
