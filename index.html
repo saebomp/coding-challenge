@@ -105,6 +105,84 @@
         console.log(adjacentElementsProduct(inputArray)) // return '21'
       </div>
     </div>
+
+    <div class="question">
+      <h3>4. Merge two sorted linked lists</h3>
+      <p>Given two sorted linked lists, merge them so that the resulting linked list is also sorted. Consider two sorted linked lists and the merged list below them as an example.</p>
+      <p>head1 -> 4 -> 8 -> 15 -> 19 -> null</p>
+      <p>head2 -> 7 -> 9 -> 10 -> 16 -> null</p>
+      <p>head1 -> 4 -> 7 -> 8 -> 9 -> 10 -> 15 -> 16 -> 19 -> null</p>
+      <div class="code">
+        let merge_sorted = function(head1, head2) { <br>
+          // if both lists are empty then merged list is also empty <br>
+          // if one of the lists is empty then other is the merged list <br>
+          if (!head1) {<br>
+              return head2;<br>
+          } else if (!head2) {<br>
+              return head1;<br>
+          }<br><br>
+      
+          let mergedHead = null;<br>
+          if (head1.data <= head2.data) {<br>
+              mergedHead = head1;<br>
+              head1 = head1.next;<br>
+          } else {<br>
+              mergedHead = head2;<br>
+              head2 = head2.next;<br>
+          }<br><br>
+      
+          let mergedTail = mergedHead;<br><br>
+      
+          while (head1 && head2) {<br>
+              let temp = null;<br>
+              if (head1.data <= head2.data) {<br><br>
+                  temp = head1;<br>
+                  head1 = head1.next;<br>
+              } else {<br>
+                  temp = head2;<br>
+                  head2 = head2.next;<br>
+              }<br><br>
+      
+              mergedTail.next = temp;<br>
+              mergedTail = temp;<br>
+          }<br><br>
+      
+          if (head1) {<br>
+              mergedTail.next = head1;<br>
+          } else if (head2) {<br>
+              mergedTail.next = head2;<br>
+          }<br>
+      
+          return mergedHead;<br>
+      };<br><br>
+      
+      let merge_sort_node_1 = create_linked_list([1, 3, 5, 6]);<br>
+      let merge_sort_node_2 = create_linked_list([2, 4, 6, 20, 34]);<br>
+      let merged_sort = create_linked_list([1, 2, 3, 4, 5, 6, 6, 20, 34]);<br><br>
+      
+      let temp_head = merge_sort_node_1;<br>
+      console.log("1st Linked List");<br>
+      while (temp_head) {<br>
+          console.log(temp_head.data);<br>
+          temp_head = temp_head.next;<br>
+      }<br><br>
+      
+      temp_head = merge_sort_node_2;<br>
+      console.log("2nd Linked List");<br>
+      while (temp_head) {<br>
+          console.log(temp_head.data);<br>
+          temp_head = temp_head.next;<br>
+      }<br>
+      let result = merge_sorted(merge_sort_node_1, merge_sort_node_2);<br><br>
+      
+      temp_head = result;<br>
+      console.log("Result Merge Sorted List");<br>
+      while (temp_head) {<br>
+          console.log(temp_head.data);<br>
+          temp_head = temp_head.next;<br>
+      }<br>
+      </div>
+    </div>
   </div>
 </body>
 </html>
