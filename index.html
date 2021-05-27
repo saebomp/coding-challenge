@@ -144,19 +144,20 @@
     <div class="question">
       <h3>6. Longest String in an Array (제일 긴 string 찾기)</h3>
       <p>Write a function that accepts an array of strings. Return the longest string.</p>
-      <p>Return the first string when all of the strings are the same length.</p>
       <p>Don't need to consider if there are no strings in the array</p>
       <div class="code">
-        let arr = [1,2,"mola","naeil","tmrtmr"]<br>
-        const longestString = (arr) => {<br>
-          let longest = ''; <span class="comment">// Step 0<br></span>
-          arr.forEach((item) => { <span class="comment">// Step 1<br></span>
-            if(item.length > longest.length) {<span class="comment"> // Step 2 & 3</span><br>
-                    longest = item;<br>
-                }<br>
-          });<br>
-          return longest; <span class="comment">// Step 5<br></span>
-        };<br>
+        let arr = [1,2,"mola","naeil","tmrtmr", "return this"]<br><br>
+
+        let lgth = 0;<br>
+        let longest;<br>
+
+        for (let i = 0; i < arr.length; i++) {<br>
+        if (arr[i].length > lgth) {<br>
+          let lgth = arr[i].length;<br>
+          longest = arr[i];<br>
+         }<br>
+        }<br><br>
+        console.log(longest);
       </div>
     </div>
   </div>
