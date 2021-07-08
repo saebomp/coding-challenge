@@ -3,10 +3,10 @@
 ## Setup
 https://saebomp.github.io/coding-challenge/
 ## These steps are as follows:
-1.Understand the Problem
-2.Make a Plan
-3.Execute Plan
-4.Refactor - is There a Way to Make it Better?
+1.Understand the Problem<br />
+2.Make a Plan<br />
+3.Execute Plan<br />
+4.Refactor - is There a Way to Make it Better?<br />
 ## Status
 Project is in progress
 ## Inspiration
