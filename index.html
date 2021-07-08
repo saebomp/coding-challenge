@@ -160,6 +160,29 @@
         console.log(longest);
       </div>
     </div>
+
+    <div class="question">
+      <h3>7. Most Commonly Used Character in String (제일 많이 쓰인 글자 찾기)</h3>
+      <p>Write a function that takes a string, and returns the character that is most commonly used in the string.</p>
+      <div class="code">
+        const countingChars = (str) => {<br />
+          const charCount = {}; <span class="comment">//Step 0</span><br />
+          let maxCharCount = 0;<br />
+          let maxChar = '';<br />
+          for(let i = 0; i < str.length; i++) { <span class="comment">// Step 1.</span><br />
+              charCount[str[i]] = ++charCount[str[i]] || 1;<br />
+          }<br />
+          <br /><br />
+          for(let key in charCount) { <span class="comment">//Step 2</span><br />
+              if(charCount[key] >= maxCharCount) {<br />
+                  maxCharCount = charCount[key] //Step 3<br />
+                  maxChar = key;<br />
+              }<br />
+          }<br />
+          return maxChar; <span class="comment">//Step 4</span><br />
+          }<br />
+      </div>
+    </div>
   </div>
 </body>
 </html>
@@ -170,3 +193,4 @@
 <!-- https://saebomp.github.io/coding-challenge/ -->
 <!-- https://edabit.com/challenges -->
 <!-- https://www.educative.io/blog/level-up-javascript-coding-challenges -->
+<!-- https://www.youtube.com/watch?v=IufUNRCQ37E&list=PLY5pAT_51eGyo4ixvdZgzY57N0_R1QMtb -->
