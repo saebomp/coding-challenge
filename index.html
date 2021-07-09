@@ -32,6 +32,10 @@
     .comment {
       color:#999
     }
+    .tab {
+      display: inline-block;
+      margin-left:15px;
+    }
   </style>
 </head>
 <body>
@@ -68,10 +72,11 @@
         let findSumOfTwo = function(A, val) {<br>
           let foundValues = new Set();<br>
           for (let a in A) {<br>
+            <span class="tab">
             if (foundValues.has(val - A[a])) {<br>
               return true;<br>
-            }<br><br>
-        
+            }
+          </span><br><br>
             foundValues.add(A[a]);<br>
           }<br>
         
@@ -80,10 +85,12 @@
         
         let v = [5, 7, 1, 2, 8, 4, 3];<br>
         let test = [3, 20, 1, 2, 7];<br><br>
-        
         for (i = 0; i < test.length; i++) {<br>
-          let output = findSumOfTwo(v, test[i]);<br>
-          console.log("findSumOfTwo(v, " + test[i] + ") = " + output);<br>
+          <span class="tab">
+            let output = findSumOfTwo(v, test[i]);<br>
+            console.log("findSumOfTwo(v, " + test[i] + ") = " + output);
+          </span>
+          <br>
         }
       </div>
     </div>
@@ -92,14 +99,16 @@
       <h3>3. Find the pair of adjacent elements that has tha largest produc(Array 안에 제일 큰숫자 바로 옆에 있는수의 곱을 구하기)</h3>
       <p>Given an array of integers, find the pair of adjacent elements that has tha largest product and return that product</p>
       <div class="code">
-        const inputArray = [3,6,-2,-5,7,3]<br>
+        const inputArray = [3,6,-2,-5,7,3]<br><br>
         const adjacentElementsProduct = inputArray => {<br>
+          <span class="tab">
             let largestProduct = inputArray[0] * inputArray[1]<br>
+            <span class="tab">
             for(let i = 0; i < inputArray.length; i++) {<br>
                 if(getProduct(inputArray, i) > largestProduct ) {<br>
                     largestProduct = getProduct(inputArray, i)<br>
                 }<br>
-            }<br>
+            }</span></span><br>
             return largestProduct<br>
         }<br>
         const getProduct = (inputArray, i) => (<br>
@@ -149,13 +158,14 @@
         let arr = [1,2,"mola","naeil","tmrtmr", "return this"]<br><br>
 
         let lgth = 0;<br>
-        let longest;<br>
+        let longest;<br><br>
 
         for (let i = 0; i < arr.length; i++) {<br>
+        <span class="tab">
         if (arr[i].length > lgth) {<br>
           let lgth = arr[i].length;<br>
           longest = arr[i];<br>
-         }<br>
+         }</span><br>
         }<br><br>
         console.log(longest);
       </div>
@@ -166,6 +176,7 @@
       <p>Write a function that takes a string, and returns the character that is most commonly used in the string.</p>
       <div class="code">
         const countingChars = (str) => {<br />
+          <span class="tab">
           const charCount = {}; <span class="comment">//Step 0</span><br />
           let maxCharCount = 0;<br />
           let maxChar = '';<br />
@@ -174,14 +185,36 @@
           }<br />
           <br /><br />
           for(let key in charCount) { <span class="comment">//Step 2</span><br />
+            <span class="tab">
               if(charCount[key] >= maxCharCount) {<br />
                   maxCharCount = charCount[key] //Step 3<br />
                   maxChar = key;<br />
-              }<br />
+              }
+            </span><br />
           }<br />
-          return maxChar; <span class="comment">//Step 4</span><br />
+          return maxChar; <span class="comment">//Step 4</span></span><br />
           }<br />
       </div>
+
+      <div class="question">
+        <h3>8. Two Sum </h3>
+        <p>Given an array of integers, return indices of the two numbers such that they add up to a specific target. You many assume that each input would have exactly one solution, and you may not use the same element twice.</p>
+        <div class="code">
+          const twoSum (nums, target) => {<br>
+            <span class="tab">
+              let storage = {};<br>
+
+              for(let [index, num] of nums.entries()){<br>
+                <span class="tab">
+                  if (storage[num] !== undefined) return [storage[num], index]<br>
+                  <span class="comment">//undefined 가 아니면 값이 있다는뜻</span><br>
+                  storage[target-num] = index;<br>
+                </span><br>
+              }
+            </span><br>
+          }
+
+        </div>
     </div>
   </div>
 </body>
